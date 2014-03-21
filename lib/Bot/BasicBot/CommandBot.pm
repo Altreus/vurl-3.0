@@ -60,6 +60,10 @@ sub said {
 
     my $package = ref $self;
 
+    if (my @auto = $self->_auto) {
+        return join " ", @auto;
+    }
+
     if ($self->{address} and not $data->{address}) {
         return;
     }
@@ -81,6 +85,8 @@ sub emoted {
 
 sub noticed {
 }
+
+sub _auto { }
 
 
 1;
