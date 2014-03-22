@@ -8,7 +8,13 @@ $|=1;
 use Config::YAML;
 use Vurl;
 
-my $conf = Config::YAML->new(config => 'config.yaml');
+my $conf = Config::YAML->new(
+    config => 'config.yaml',
+    vurl => {
+        adverbfile => 'adverbs.txt',
+        verbfile => 'verbs.txt',
+    },
+);
 $conf->read('local.yaml');
 
 $conf = { %$conf };
