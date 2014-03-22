@@ -10,7 +10,7 @@ use Vurl;
 my $vurl = Vurl->new(
     server => "irc.quakenet.org",
     port   => "6667",
-    channels => ["#internets"],
+    channels => ["#internets-dev"],
 
     nick      => "v3k",
     alt_nicks => ["lolbot", "cmdbot"],
