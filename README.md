@@ -6,9 +6,36 @@ script.
 Vurl 3000 is shrugging off the yoke of irssi and is now a free bird, running
 independently of shackles and bonds
 
+## Install ##
+
+First install [cpanm](http://cpanmin.us).
+
+Then install the rest.
+
+    cpanm --installdeps .
+
+You may benefit from `local::lib` first:
+
+    cpanm --local-lib=~/perl5 local::lib \
+      && echo 'eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)' >> ~/.bashrc \
+      && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+
+## Configure ##
+
+Create a file called local.yaml that looks like this:
+
+    server: "irc.quakenet.org"
+    port: "6667"
+    channels:
+     - "#internets-dev"
+    nick: "v3k"
+    username: "vurl3000"
+
+Replace these values as relevant.
+
 ## Extend ##
 
-Docs for creating new commands are in Bot::BasicBot::CommandBot - 
+Docs for creating new commands are in Bot::BasicBot::CommandBot -
 [https://github.com/Altreus/Bot-BasicBot-CommandBot](https://github.com/Altreus/Bot-BasicBot-CommandBot)
 - but check below on Modules.
 
