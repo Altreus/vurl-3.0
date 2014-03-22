@@ -12,9 +12,9 @@ my $vurl = Vurl->new(
     port   => "6667",
     channels => ["#internets"],
 
-    nick      => "vurl3",
+    nick      => "v3k",
     alt_nicks => ["lolbot", "cmdbot"],
-    username  => "vurl3",
+    username  => "vurl3000",
     name      => "Vurl Three Point Oh",
     address   => 1,
 );
