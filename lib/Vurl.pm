@@ -7,6 +7,7 @@ use Bot::BasicBot::CommandBot qw(command);
 
 use base 'Bot::BasicBot::CommandBot';
 
+use Vurl::Command::Id;
 use Vurl::Command::Maths;
 use Tie::File;
 
