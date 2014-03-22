@@ -5,18 +5,18 @@ use warnings;
 
 $|=1;
 
+use Config::YAML;
 use Vurl;
 
-my $vurl = Vurl->new(
-    server => "irc.quakenet.org",
-    port   => "6667",
-    channels => ["#internets-dev"],
+my $conf = Config::YAML->new(config => 'config.yaml');
+$conf->read('local.yaml');
 
-    nick      => "v3k",
-    alt_nicks => ["lolbot", "cmdbot"],
-    username  => "vurl3000",
-    name      => "Vurl Three Point Oh",
-    address   => 1,
+$conf = { %$conf };
+
+delete @{$conf}{ grep /^_/, keys %$conf };
+
+my $vurl = Vurl->new(
+    %$conf
 );
 
 $SIG{INT} = sub {$vurl->shutdown};
