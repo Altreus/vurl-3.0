@@ -6,7 +6,6 @@ use utf8;
 
 use List::Util qw(reduce);
 
-# qr// gets messed up if you use a hash so don't
 sub import {
     my $caller = (caller)[0];
 
