@@ -8,6 +8,17 @@ sub import {
     my $caller = (caller)[0];
 
     $caller->declare_command(vurl => \&vurl);
+    $caller->declare_command(decide => \&decide);
+}
+
+sub decide {
+    my ($self, $cmd, $message) = @_;
+
+    my @choices = $message =~ /\bor\b/ 
+        ? split /\s+or\s+/, $message
+        : (0,1);
+
+    return $choices[rand @choices];
 }
 
 sub vurl {
