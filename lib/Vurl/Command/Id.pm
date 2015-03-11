@@ -14,9 +14,9 @@ sub import {
 sub decide {
     my ($self, $cmd, $message) = @_;
 
-    my @choices = $message =~ /\bor\b/ 
+    my @choices = $message =~ /\bor\b/
         ? split /\s+or\s+/, $message
-        : (0,1);
+        : qw/Yes No/;
 
     return $choices[rand @choices];
 }
