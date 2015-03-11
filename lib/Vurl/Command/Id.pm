@@ -9,6 +9,7 @@ sub import {
 
     $caller->declare_command(vurl => \&vurl);
     $caller->declare_command(decide => \&decide);
+    $caller->declare_command(atbash => \&atbash);
 }
 
 sub decide {
@@ -56,6 +57,16 @@ sub vurl {
 
     # this command emotes so avoid saying anything
     return;
+}
+
+sub atbash {
+    my ($self, $cmd, $message) = @_;
+
+    my %repl;
+    @repl{'A'..'Z'} = reverse 'A'..'Z';
+    @repl{'a'..'z'} = reverse 'a'..'z';
+
+    $message =~ s/([a-z])/$repl{$1}/gire;
 }
 
 1;
