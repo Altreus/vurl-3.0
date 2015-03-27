@@ -9,6 +9,7 @@ use base 'Bot::BasicBot::CommandBot';
 
 use Vurl::Command::Id;
 use Vurl::Command::Maths;
+use Vurl::Command::Net;
 use Tie::File;
 
 sub new {
