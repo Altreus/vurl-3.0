@@ -7,6 +7,7 @@ use 5.014;
 sub import {
     my $caller = (caller)[0];
 
+    $caller->declare_command(say => \&i_say);
     $caller->declare_command(vurl => \&vurl);
     $caller->declare_command(decide => \&decide);
     $caller->declare_command(atbash => \&atbash);
@@ -67,6 +68,12 @@ sub atbash {
     @repl{'a'..'z'} = reverse 'a'..'z';
 
     $message =~ s/([a-z])/$repl{$1}/gire;
+}
+
+sub i_say {
+    my ($self, $cmd, $message) = @_;
+
+    return $self->parse_message($message);
 }
 
 1;
