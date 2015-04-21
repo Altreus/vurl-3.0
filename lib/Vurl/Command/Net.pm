@@ -21,6 +21,7 @@ sub title {
 
     $text ||= $last_url;
 
+    return "Which URL?" unless $text;
     return URI::Title::title($text);
 }
 
